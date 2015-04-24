@@ -8,6 +8,41 @@
 </head>
 <body>
 
+<nav class="top-bar">
+    <ul class="title-area">
+        <li class="name">
+             <h1><a href="/">Home</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon">
+        	<a href="#"><span>Menu</span></a>
+        </li>
+    </ul>
+
+    <section class="top-bar-section">
+	    <ul class="left">
+	        <li class="divider"></li>
+            <li class="active"><a href="/surveys/new">Create Survey</a></li>
+            <li class="divider"></li>
+	    </ul>
+	    <ul class="right">
+		    <li class="has-form">
+			  <div class="row collapse">  
+			    <%= form_tag("/", method: "GET") do |f| %>
+				    <div class="large-6 small-9 columns">
+				      <%= text_field_tag(:q, params[:q]) %>
+				    </div>
+				    <div class="large-6 small-3 columns">
+				      	<%= submit_tag("Search",class: 'alert button expand') %>
+					</div>
+			    <%end%>
+			  </div>
+			</li>
+		</ul>
+	</section>
+</nav>
+<br/>
+<br/>
+
 <%= yield %>
 
 </body>

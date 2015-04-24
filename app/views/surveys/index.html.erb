@@ -1,0 +1,15 @@
+<ul class="center">
+	<h4>Surveys</h4>
+	<% @surveys.each do |survey| %>
+	<div class="row">
+	    <div class="small-4 columns">
+			<%= label_tag survey.survey_name,nil, class: 'left inline'%>
+	    </div>
+	    <div class="small-4 columns">
+	    	<%= link_to "Take it", "/surveys/#{survey.id}", class: "button tiny"%>
+		</div>
+		<div class="small-4 columns"></div>
+	</div>
+	<%end%>
+</ul>
+
