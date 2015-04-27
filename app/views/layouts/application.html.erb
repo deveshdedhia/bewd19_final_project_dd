@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Bewd19FinalProjectDd</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<nav class="top-bar">
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  	<%= javascript_include_tag "vendor/jquery.js" %>
+  	<%= javascript_include_tag "vendor/fastclick.js" %>
+  	<%= javascript_include_tag "foundation.min.js" %>
+  	<nav class="top-bar">
     <ul class="title-area">
         <li class="name">
              <h1><a href="/">Home</a></h1>
@@ -44,6 +52,6 @@
 <br/>
 
 <%= yield %>
-
-</body>
+  <script>$(document).foundation();</script>
+  </body>
 </html>

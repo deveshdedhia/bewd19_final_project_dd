@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="small-6 columns">
+		<fieldset>
+		<% i = q.options[:child_index]+1%>
+		<legend><%="Question#{i}"%></legend>
+	    <div class="small-12 columns">
+			<div class="row">
+				<div class="small-3 columns">
+					<%= q.label :Title,"Question Title",class: "right inline"%>
+				</div>
+				<div class="small-9 columns">
+					<%= q.text_field :question_text, id: "right-label",placeholder: "Type your Question text here"%>
+				</div>
+			</div>
+		</div>
+		<div class="small-12 columns">
+			<div class="row">
+				<div class="small-3 columns">
+					<%= q.label :HelpText,"Help Text",class: "right inline"%>
+				</div>
+				<div class="small-9 columns">
+					<%= q.text_field :help_text, id: "right-label"%>
+				</div>
+			</div>
+		</div>
+		<div class="small-12 columns">
+			<div class="row">
+				<div class="small-3 columns">
+					<%= q.label :Type,"Type",class: "right inline", id: "type_dropdown_label" + i.to_s %>
+				</div>
+				<div class="small-9 columns">
+					<%= q.select :question_type,@question_types , id: "type_dropdown#{i}"%>
+				</div>
+			</div>
+		</div>
+		<div class="small-12 columns">
+			<div class="row">
+				<div class="small-3 columns">
+					<%= q.label :choice_list,"Choices",class: "right inline", id: "choicelist_label#{i}"%>
+				</div>
+				<div class="small-9 columns">
+					<%= q.text_field :choice_list, id: "choicelist#{i}", placeholder: "Type a comma separated list of choices"%>
+				</div>
+			</div>
+		</div>
+		</fieldset>
+	</div>
+</div>

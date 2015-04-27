@@ -10,54 +10,8 @@
 			<%= f.text_field :survey_name, id: "right-label"%>
 		</div>
 	</div>
-	<%= f.fields_for :questions do |q| %>
-	<div class="row">
-		<div class="small-6 columns">
-			<fieldset>
-    		<legend>Question <%= q.options[:child_index]+1 %></legend>
-		    <div class="small-12 columns">
-				<div class="row">
-					<div class="small-3 columns">
-						<%= q.label :Title,"Question Title",class: "right inline"%>
-					</div>
-					<div class="small-9 columns">
-						<%= q.text_field :question_text, id: "right-label",placeholder: "Type your Question text here"%>
-					</div>
-				</div>
-			</div>
-			<div class="small-12 columns">
-				<div class="row">
-					<div class="small-3 columns">
-						<%= q.label :HelpText,"Help Text",class: "right inline"%>
-					</div>
-					<div class="small-9 columns">
-						<%= q.text_field :help_text, id: "right-label"%>
-					</div>
-				</div>
-			</div>
-			<div class="small-12 columns">
-				<div class="row">
-					<div class="small-3 columns">
-						<%= q.label :Type,"Type",class: "right inline"%>
-					</div>
-					<div class="small-9 columns">
-						<%= q.select :question_type, [['text', 'text'], ['dropdown', 'dropdown'], ['checkbox','checkbox']], id: "right-label"%>
-					</div>
-				</div>
-			</div>
-			<div class="small-12 columns">
-				<div class="row">
-					<div class="small-3 columns">
-						<%= q.label :choice_list,"Choices",class: "right inline"%>
-					</div>
-					<div class="small-9 columns">
-						<%= q.text_field :choice_list, id: "right-label", placeholder: "Type a comma separated list of choices"%>
-					</div>
-				</div>
-			</div>
-			</fieldset>
-		</div>
-	</div>
+	<%= f.fields_for :questions do |question_form| %>
+	<%= render partial: "questions/question_fields", :locals => {:q => question_form} %>
 	<%end%>
 	<div class="row">
 		<div class="small-2 columns">

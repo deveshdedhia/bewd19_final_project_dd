@@ -6,6 +6,14 @@ class SurveysController < ApplicationController
 
 	def create
 		@survey = Survey.new(survey_params)
+		@survey.questions.each do |q|
+			if q.choice_list.to_s != ''
+				choice_options = q.choice_list.split(',')
+				choice_options.each do |choice_text|
+					q.choices.append(Choice.new(choice_text: choice_text.strip))
+				end
+			end
+		end
 		if @survey.save
 			redirect_to @survey
 		else
@@ -20,11 +28,12 @@ class SurveysController < ApplicationController
 
 	def new
 		@survey = Survey.new
+		@question_types = [['Textbox', 'textbox'], ['Checkbox', 'checkbox'],['Dropdown','dropdown']]
 		3.times { @survey.questions.build}
 	end
 
 	private
 	def survey_params
-		params.require(:survey).permit(:survey_name,:questions)
+		params.require(:survey).permit!
 	end
 end
