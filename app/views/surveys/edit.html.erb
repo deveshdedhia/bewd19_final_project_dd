@@ -1,0 +1,24 @@
+<ul class="left-off">
+	<h4 class="subheader">Edit Survey</h4>
+	<br/>
+	<%= form_for @survey do |f| %>
+	<div class="row">
+		<div class="small-1 columns">
+			<%= f.label :Name,class: "right inline"%>
+		</div>
+		<div class="small-11 columns">
+			<%= f.text_field :survey_name, id: "right-label"%>
+		</div>
+	</div>
+	<%= f.fields_for :questions do |question_form| %>
+	<%= render partial: "questions/question_fields", :locals => {:q => question_form} %>
+	<%end%>
+	<div class="row">
+		<div class="small-2 columns">
+			<p><%= f.submit %></p>
+		</div>
+	</div>
+	<% end %>
+</ul>
+
+

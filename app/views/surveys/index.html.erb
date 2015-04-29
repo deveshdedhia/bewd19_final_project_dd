@@ -13,8 +13,10 @@
 	    </div>
 	    <div class="small-4 columns">
 	    	<%= link_to "Take it", "/surveys/#{survey.id}/survey_answers/new", class: "button tiny"%>
+	    	<%= link_to "Edit Survey", "/surveys/#{survey.id}/edit", class: "button tiny"%>
 		</div>
-		<div class="small-4 columns"></div>
+		<div class="small-4 columns">
+		</div>
 	</div>
 	<%end%>
 </ul>
