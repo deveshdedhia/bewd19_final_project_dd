@@ -1,0 +1,15 @@
+<ul class="left-off">
+	<h3 class="subheader"><%= "Survey: #{@survey.survey_name}"%></h3>
+	<br/>
+	<%= form_for @survey_answer do |f| %>
+		<%= f.fields_for :answers do |answer_form| %>
+			<%= render partial: "answers/answer_fields", :locals => {:a => answer_form} %>
+		<%end%>
+		<div class="row">
+			<div class="small-2 columns">
+				<p><%= f.submit %></p>
+			</div>
+		</div>
+	<% end %>
+</ul>
+

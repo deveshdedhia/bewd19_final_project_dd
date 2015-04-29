@@ -10,21 +10,18 @@ class SurveysController < ApplicationController
 			if q.choice_list.to_s != ''
 				choice_options = q.choice_list.split(',')
 				choice_options.each do |choice_text|
-					q.choices.append(Choice.new(choice_text: choice_text.strip))
+					q.choices.build(choice_text: choice_text.strip)
 				end
 			end
 		end
 		if @survey.save
-			redirect_to @survey
+			redirect_to surveys_path
 		else
 			@error = "Failed to Create Survey"
 			redirect_to new
 		end
 	end
 
-	def show
-		@survey = Survey.find(params[:id])
-	end
 
 	def new
 		@survey = Survey.new

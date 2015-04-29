@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="small-6 columns">
+		<fieldset>
+		<% i = a.options[:child_index]+1%>
+		<legend><%="Question#{i}"%></legend>
+
+		<%# Question %>
+	    <div class="small-12 columns">
+			<div class="row">
+				<div class="small-12 columns">
+					<%= a.label :question_title,a.object.question.question_text,class: "label"%>
+				</div>
+				<br/>
+			</div>
+
+			<%# TextBox Option%>
+			<% if a.object.question.question_type == 'textbox'%>
+				<%= render partial: "answers/text_field", :locals => {:a => a} %>
+			<%end%>
+
+			<%# Checkbox Option%>
+			<% if a.object.question.question_type == 'dropdown'%>
+				<%= render partial: "answers/drop_down_field", :locals => {:a => a} %>
+			<%end%>
+			
+			<%# Checkbox Option%>
+			<% if a.object.question.question_type == 'checkbox'%>
+			<div class="row">
+				<%= render partial: "answers/check_box_field", :locals => {:a => a} %>
+			</div>
+			<%end%>	
+
+			<div class="row">
+				<div class="small-12 columns">
+					<%= a.label :help_text,"(#{a.object.question.help_text})",class: "radius secondary label", id: "question_help#{i}"%>
+				</div>
+			</div>
+		</div>
+		</fieldset>
+	</div>
+</div>

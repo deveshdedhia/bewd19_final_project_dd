@@ -1,0 +1,11 @@
+<div class="small-12 columns">
+	<% i = a.options[:child_index]%>
+	<% a.object.question.choices.each do |choice| %>
+		<div class="row">
+			<div class="small-12 columns">
+				<%= check_box_tag "survey_answer[answers_attributes][#{i}]choice_array[]",choice.choice_text, false%>
+				<%= label_tag choice.choice_text, choice.choice_text, class: "right"%>
+			</div>
+		</div>
+	<%end%>
+</div>
