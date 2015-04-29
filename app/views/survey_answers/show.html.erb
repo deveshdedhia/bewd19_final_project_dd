@@ -1,0 +1,22 @@
+<ul class="left-off">
+	<h4 class="subheader"><%= "Thank you for answering the survey: #{@survey.survey_name}"%></h4>
+	<br/>
+	<br/>
+	<div class="row">
+		<div class="small-8 columns">
+		  <table>
+		  	  <caption>Your Reponses are detailed below</caption>
+			  <tr>
+			    <th width="400">Question</th>
+			    <th width="100">Responses</th>
+			  </tr>
+			  <% @survey_answer.answers.each do |answer| %>
+				<tr>
+			      <td> <%=answer.question.question_text%> </td>
+			      <td> <%=answer.answer_text%> </td>
+				</tr>
+			  <%end%>
+		  </table>
+		</div>
+	</div>
+</ul>

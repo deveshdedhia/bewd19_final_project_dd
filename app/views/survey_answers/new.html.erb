@@ -1,7 +1,8 @@
 <ul class="left-off">
-	<h3 class="subheader"><%= "Survey: #{@survey.survey_name}"%></h3>
+	<h4 class="subheader"><%= "Survey: #{@survey.survey_name}"%></h4>
 	<br/>
 	<%= form_for @survey_answer do |f| %>
+		<%= f.hidden_field :survey_id%>
 		<%= f.fields_for :answers do |answer_form| %>
 			<%= render partial: "answers/answer_fields", :locals => {:a => answer_form} %>
 		<%end%>

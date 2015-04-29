@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'surveys#index'
   resources :surveys do 
-    resources :survey_answers,shallow: true
+    resources :survey_answers,only: [:new],shallow: true
   end
   resources :survey_answers #, only: [:index, :create]
   # The priority is based upon order of creation: first created -> highest priority.
